@@ -73,7 +73,7 @@ class SignIn:
         save_button.click()
         sleep(self.WAIT_TIME_LONG)
 
-    def select_region(self, region):
+    def select_region(self, region="EU"):
         print("Select {} region".format(region))
         self.open_host_region_selection_popup()
         if region == "USA":
@@ -131,3 +131,8 @@ class SignIn:
         print("Close password page")
         close_button = self.utilities.wait_for_element_by_resource_id(self.CLOSE_BUTTON_PASSWORD)
         close_button.click()
+
+    def is_alert_displayed(self):
+        print("Check if an alert popup is displayed")
+        alert = self.utilities.wait_for_element_by_resource_id(self.ALERT_POPUP)
+        return (alert.is_displayed())

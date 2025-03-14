@@ -58,7 +58,7 @@ class MyTestCase(unittest.TestCase):
         my_vault_page = self.utilities.wait_for_element_by_text("My vault")
         self.assertTrue(my_vault_page.is_displayed())
 
-    @unittest.skip("Skipping this test - no correct ID/password")
+    @unittest.skip("Skipping this test - use correct ID/password")
     def test_login_usa(self):
         print("*** TC: Login to US environment")
         self.assertTrue(self.signin_page.is_login_page_displayed())
@@ -74,8 +74,7 @@ class MyTestCase(unittest.TestCase):
         self.signin_page.select_region("USA")
         self.signin_page.set_remember_password(False)
         self.signin_page.submit_email_and_password()
-        alert_popup = self.utilities.wait_for_element_by_resource_id(self.signin_page.ALERT_POPUP)
-        self.assertTrue(alert_popup.is_displayed())
+        self.assertTrue(self.signin_page.is_alert_displayed())
         self.signin_page.accept_alert()
         self.signin_page.close_password_page()
         self.assertTrue(self.signin_page.is_login_page_displayed())
