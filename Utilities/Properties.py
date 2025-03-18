@@ -12,7 +12,7 @@ class Properties:
 
     def __init__(self):
         file_path = self.get_file_path_pathlib("config.properties")
-        print("****** ", file_path)
+        print("****** Config file location: ", file_path)
         self.properties = self._read_properties(file_path)
 
     def get_properties(self):

@@ -26,7 +26,7 @@ class AppiumUtil:
             )
             return element
         except TimeoutException:
-            print("Timeout")
+            print("Timeout while waiting for element to be displayed")
         return None
 
     def wait_for_element_by_resource_id(self, text: str, wait_timeout = 10) -> WebElement | None:
@@ -37,7 +37,7 @@ class AppiumUtil:
             )
             return element
         except TimeoutException:
-            print("Timeout")
+            print("Timeout while waiting for element to be displayed")
         return None
 
 
